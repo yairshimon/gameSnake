@@ -16,8 +16,10 @@ public class Snake extends JPanel implements ActionListener {
     boolean running = false;
     int level1 = 1;
     boolean pause = false;
+    private ImageIcon keyArrows;
 
     Snake() {
+        this.keyArrows = new ImageIcon("images/211px-Arrow_keys.jpg");
         random = new Random();
         this.setPreferredSize(new Dimension(Definitions.WINDOWS_WIDTH, Definitions.WINDOWS_HEIGHT));
         this.setBackground(Color.cyan);
@@ -89,9 +91,10 @@ public class Snake extends JPanel implements ActionListener {
 
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        if (countApple == Definitions.ZERO)    //  If you ate 0 apples still did not start the game showed game rules.
+        if (countApple == Definitions.ZERO) {  //  If you ate 0 apples still did not start the game showed game rules.
             rulesGame(graphics);
-        else if (countApple == Definitions.winner) {// If you ate 25 apples you won
+            this.keyArrows.paintIcon(this, graphics, 540, 210);
+        }else if (countApple == Definitions.winner) {// If you ate 25 apples you won
             graphics.setColor(Color.red);
             graphics.setFont(new Font("Ink Free", Font.BOLD, 75));
             // FontMetrics metrics2 = getFontMetrics(graphics.getFont());

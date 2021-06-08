@@ -16,13 +16,18 @@ public class Snake extends JPanel implements ActionListener {
     boolean running = false;
     int level1 = 1;
     boolean pause = false;
-    private ImageIcon keyArrows;
+    private final ImageIcon keyArrows;
+    private final ImageIcon titleSnake;
+    private final ImageIcon screen;
+
 
     Snake() {
-        this.keyArrows = new ImageIcon("images/211px-Arrow_keys.jpg");
+        this.keyArrows = new ImageIcon("images/Arrow_keys.jpg");
+        this.titleSnake = new ImageIcon("images/titleSnake.png");
+        this.screen = new ImageIcon("images/screenGame.jpeg");
         random = new Random();
         this.setPreferredSize(new Dimension(Definitions.WINDOWS_WIDTH, Definitions.WINDOWS_HEIGHT));
-        this.setBackground(Color.cyan);
+        this.setBackground(Color.black);
         this.setFocusable(true);
         this.addKeyListener(new MyKeyAdapter());
         button();
@@ -91,9 +96,11 @@ public class Snake extends JPanel implements ActionListener {
 
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
+        this.screen.paintIcon(this, graphics, Definitions.ZERO, Definitions.ZERO);
         if (countApple == Definitions.ZERO) {  //  If you ate 0 apples still did not start the game showed game rules.
             rulesGame(graphics);
-            this.keyArrows.paintIcon(this, graphics, 540, 210);
+            this.titleSnake.paintIcon(this, graphics, Definitions.X_TITLE_SNAKE, Definitions.Y_TITLE_SNAKE);
+            this.keyArrows.paintIcon(this, graphics, Definitions.X_KEY_ARROW, Definitions.Y_KEY_ARROW);
         }else if (countApple == Definitions.winner) {// If you ate 25 apples you won
             graphics.setColor(Color.red);
             graphics.setFont(new Font("Ink Free", Font.BOLD, 75));

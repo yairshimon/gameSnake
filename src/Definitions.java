@@ -1,6 +1,10 @@
 public class Definitions  {
     static final int WINDOWS_WIDTH = 1000;
     static final int WINDOWS_HEIGHT = 500;
+    static final int X_TITLE_SNAKE = 350;
+    static final int Y_TITLE_SNAKE = 20;
+    static final int X_KEY_ARROW = 460;
+    static final int Y_KEY_ARROW = 210;
     static final int SIZE_UNIT = 50;
     static final int UNITS_GAME = (WINDOWS_WIDTH * WINDOWS_HEIGHT) / (SIZE_UNIT * SIZE_UNIT);
     static final int INHIBIT = 200;
